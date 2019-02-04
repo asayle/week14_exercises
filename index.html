@@ -25,23 +25,33 @@
 
 <body>
 
-<div id="todo">
-
-	<section>
-		<input
-			type="text"
-			placeholder="what do you need to do?"
-			v-model="newTask"
-			v-on:keyup.enter="addTask"
-			>
-	</section>
-	<ul>
-		<li v-for="task in todoList">
-			<label>{{task}}</label>
-			<button type="button" v-on:click="removeTask(task)">X</button>
-		</li>
-	</ul>
+<div id="app">
+	<div id="header" class="bg-dark text-white">
+		<h1>Choose a link below</h1>
+		<ul>
+			<li>
+				<router-link to="/one">Link One</router-link>
+				</li>
+			<li>
+				<router-link to="/two">Link Two</router-link>
+				</li>
+			<li>
+				<router-link to="/three">Link three</router-link>
+				</li>
+		</ul>
 </div>
+	<div id="content">
+		<transition mode="out-in" name="slide-fade">
+			<router-view></router-view>
+		<transition>
+	</div>
+<div id="footer" class="bg-dark text-center text-white">
+	<p class="p-5">Thanks for visiting my site!</p>
+</div>
+
+</div>
+
+
 
 </body>
 </head>
@@ -51,12 +61,14 @@
 	<!-- Optional JavaScript -->
 	<!-- Vue.js -->
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<!-- Vue Router -->
+	<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
   	src="http://code.jquery.com/jquery-3.3.1.js"
   	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   	crossorigin="anonymous"></script>
-<!--     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <!-- custom script -->
     <script type="text/JavaScript" src="js/bootstrap.min.js"></script>
     <script type="text/JavaScript" src="js/main.js"></script>

@@ -1,18 +1,54 @@
-var todo = new Vue ({
-	el: '#todo',
+const one = {
+	template: `
+
+	<div class='text-center'>
+		<h3>This is an illustration by Agnes Ernoult</h3>
+		<img class='img-fluid' src='img/agnes.jpg' alt='an illustration by Agnes Ernoult'>
+	</div>`
+}
+
+const two = {
+	template: `
+	
+	<div class='text-center'>
+		<h3>This is an illustration by Bjorn von Schlippe</h3>
+		<img class='img-fluid' src='img/bjorn.jpg' alt='an illustration by Bjorn von Schlippe'>
+	</div>`
+}
+
+const three = {
+	template: `
+	
+	<div class='text-center'>
+		<h3>This is an illustration by Gary Taxali</h3>
+		<img class='img-fluid' src='img/gary.jpg' alt='an illustration by Gary Taxali'>
+	</div>`
+}
+
+const router = new VueRouter ({
+	routes: [
+		{
+			path: '/one',
+			component: one
+		},
+		{
+			path: '/two',
+			component: two
+		},
+		{
+			path: '/three',
+			component: three 
+		},
+	]
+})
+
+var routerTest= new Vue({
+	router,
+	el:'#app',
 	data: {
-		newTask: '',
-		todoList: []
+
 	},
 	methods: {
-		addTask: function() {
-			var task = this.newTask;
-			this.todoList.push(task);
-		},
-		removeTask: function(task) {
-			var index = this.todoList.indexOf(task);
-			this.todoList.splice(index,1);
-		}
-	}
 
-});
+	}
+}).$mount('#app')
